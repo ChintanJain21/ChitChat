@@ -1,7 +1,10 @@
 import User from "../models/user.model.js";
 import { generateToken } from "../utils/generateToken.js";
 import bcrypt from "bcryptjs";
-export const register = async (req, res) => {
+import cloudinary from "../utils/cloudinary.js";
+
+
+export const signup = async (req, res) => {
     const { email, fullName, password } = req.body;
     if (!email || !fullName || !password) {
         return res.status(400).json({ message: "Please fill all the fields" });

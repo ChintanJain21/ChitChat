@@ -1,2 +1,4 @@
 @import "tailwindcss";
-@plugin "daisyui";np
+@plugin "daisyui" {
+  themes: all;
+}

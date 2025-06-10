@@ -8,16 +8,27 @@ import SettingsPage from './pages/SettingsPage'
 import ProfilePage from './pages/ProfilePage'
 import { useAuthStore } from './store/useAuthStore'
 import { Loader } from 'lucide-react';
+import { Toaster } from 'react-hot-toast'
+import { useThemeStore } from './store/useThemeStore'
+import { useApplyTheme } from './hooks/useApplyTheme'
 const App=()=>{
  const{authUser,checkAuth,isCheckingAuth} =useAuthStore()
+ const {theme}=useThemeStore()
  useEffect(()=>{
     checkAuth()
  },[checkAuth])
+   useApplyTheme()
  console.log({authUser})
+ if (isCheckingAuth && !authUser)
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="size-10 animate-spin" />
+      </div>
+    );
 
 
   return (
-    <div>
+    <div data-theme={theme}>
       <Navbar/>
       <Routes>
         <Route path="/" element={authUser?<HomePage/> :<Navigate to="/login"/>} />
@@ -27,7 +38,7 @@ const App=()=>{
           <Route path="/profile" element={authUser?<ProfilePage/> :<Navigate to="/login"/>} />
       
       </Routes>
-  
+      <Toaster/>
     </div>
   )
 }
