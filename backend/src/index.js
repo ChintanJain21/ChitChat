@@ -9,7 +9,6 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 import { app,server } from "./utils/socket.js"
 dotenv.config()
-app
 const PORT=process.env.PORT
 const __dirname = path.resolve();
 
