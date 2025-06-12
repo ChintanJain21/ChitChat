@@ -1,7 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
 import path from "path";
-
 import authRoutes from "./routes/auth.route.js"
 import messageRoutes from "./routes/message.route.js"
 import { connectDB } from "./database/db.js"
