@@ -1,5 +1,6 @@
 import User from '../models/user.model.js';
 import Message from '../models/message.model.js';
+import cloudinary from '../utils/cloudinary.js';
 export const getUserforSidebar=async (req, res) => {
     try {
       const loggedInUserId = req.user._id;
