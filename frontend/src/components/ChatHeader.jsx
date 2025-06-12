@@ -41,12 +41,8 @@ const ChatHeader = () => {
                 {selectedUser.fullName || 'Unknown User'}
               </h3>
               <div className="flex items-center gap-1 mt-0.5">
-                <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${
-                  isOnline ? 'bg-success' : 'bg-base-300'
-                }`} />
-                <p className={`text-xs transition-colors duration-200 ${
-                  isOnline ? 'text-success' : 'text-base-content/60'
-                }`}>
+                <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 `} />
+                <p className={`text-xs transition-colors duration-200 $`}>
                   {isOnline ? "Online" : "Offline"}
                 </p>
               </div>
